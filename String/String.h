@@ -80,6 +80,26 @@ public:
 	{
 		return _str;
 	}
+
+  //成员函数
+  void Reserve(size_t n);
+  void Resize(size_t n,char a = '\0');
+
+  void PushBack(char a);
+  void Append(char* str);
+  void Insert(size_t pos,char a);
+  void Insert(size_t pos,char* str);
+  void Earse(size_t pos,size_t len = npos);
+  size_t Find(char a,size_t pos = 0);
+  size_t Find(char* str,size_t pos = 0);
+
+  String& operator+=(char a);
+  String& operator+=(char *str);
+  String& operator+=(String &s);
+  bool operator<(String& s);
+  bool operator==(String& s);
+
+
 private:
 	char* _str;
 	size_t _size;
