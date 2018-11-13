@@ -9,6 +9,21 @@ using namespace std;
 class String
 {
 public:
+
+  //迭代器
+  typedef char* iterator;
+  typedef const char* const_iterator;
+
+  iterator begin()
+  {
+    return _str;
+  }
+
+  iterator end()
+  {
+    return _str+_size;
+  }
+
 	//构造函数
 	String(const char *str = "")
 	{
@@ -95,11 +110,16 @@ public:
 
   String& operator+=(char a);
   String& operator+=(char *str);
-  String& operator+=(String &s);
-  bool operator<(String& s);
-  bool operator==(String& s);
-
-
+  String& operator+=(String &s);  
+   
+  friend bool operator!=(String &s1,String &s2);
+  friend bool operator==(String &s1,String &s2); 
+  friend bool operator<=(String &s1,String &s2); 
+  friend bool operator<(String &s1,String &s2); 
+  friend bool operator>(String &s1,String &s2); 
+  friend bool operator>=(String &s1,String &s2); 
+  friend istream& operator>>(istream& is ,String &s);
+  friend ostream& operator<<(ostream& os,String &s);
 private:
 	char* _str;
 	size_t _size;
@@ -108,3 +128,5 @@ private:
 	static const size_t npos;
 
 };
+
+
